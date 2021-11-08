@@ -4,7 +4,7 @@ This repository contains a template for a Dataflow Flex Template written in Pyth
 
 The code is based on the same example data as [Google Cloud Python Quickstart](https://cloud.google.com/dataflow/docs/quickstarts/quickstart-python/), "King Lear" which is a tragedy written by William Shakespeare.
 
-The Dataflow job reads the file content, count occurencies of each word and inserts it to a BigQuery table. We also add the schedule date to the table name producing a sharded table for the output.
+The Dataflow job reads the file content, count occurencies of each word and inserts it to a BigQuery table. The schedule date is also added to the table name producing a sharded table for the output.
 
 Source data:
 
@@ -25,9 +25,9 @@ The job is configured with the following pipeline options:
 
 When using [Dataflow runner](https://hub.docker.com/r/stoix/dataflow-runner/), `stoix_scheduled` is automatically set and other pipeline options can be added as described in the [Dataflow runner](https://hub.docker.com/r/stoix/dataflow-runner/) README.
 
-## Test our code
+## Test the code
 
-We use [Tox](https://tox.wiki/en/latest/index.html) to locally format, test and lint our code. Make sure to install it with `pip install tox` and then just run `tox` within the project folder.
+[Tox](https://tox.wiki/en/latest/index.html) is used to format, test and lint the code. Make sure to install it with `pip install tox` and then just run `tox` within the project folder.
 
 ## Run pipeline
 
@@ -57,7 +57,7 @@ python -m main \
 
 ## Build Docker image for STOIX
 
-In order to run our pipeline we need to package the Flex Template in a Docker image and push it to our Docker image repository. For this example we are using Docker Hub.
+In order to run the pipeline the Flex Template needs to be packaged in a Docker image and pushed to a Docker image repository. In this example Docker Hub is used.
 
 Set the tag to the name and version of your pipeline, e.g: `stoix/count-words:1.0.0`.
 
@@ -65,7 +65,7 @@ Set the tag to the name and version of your pipeline, e.g: `stoix/count-words:1.
 $ docker build --tag stoix/count-words:1.0.0 .
 ```
 
-Then we upload it to our Docker image repository.
+Then upload the image to the Docker image repository.
 
 ```
 $ docker push stoix/count-words:1.0.0
@@ -73,7 +73,7 @@ $ docker push stoix/count-words:1.0.0
 
 ## Run Dataflow on STOIX
 
-Now we can run the Dataflow Flex Template job using [Dataflow runner](https://hub.docker.com/r/stoix/dataflow-runner/). Add a new job with the image `stoix/dataflow-runner` and following environment variables:
+Now the Dataflow Flex Template job can be ran using [Dataflow runner](https://hub.docker.com/r/stoix/dataflow-runner/). Add a new job with the image `stoix/dataflow-runner` and the following environment variables:
 
 * GCP_PROJECT_ID: `<PROJECT ID>`
 * GCP_REGION: europe-north1
