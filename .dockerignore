@@ -1,0 +1,12 @@
+.dockerignore
+.git/
+.gitignore
+Dockerfile
+
+# .gitignore
+.tox/
+.vscode/
+__pycache__/
+*egg-info*
+build/
+venv/
