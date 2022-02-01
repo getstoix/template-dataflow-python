@@ -31,7 +31,7 @@ When using [Dataflow runner](https://hub.docker.com/r/stoix/dataflow-runner/), `
 
 ## Run pipeline
 
-In order to work with the code locally, you can use Python virtual environments. Make sure to use Python version `3.7.10` as it is the version supported by Google Dataflow.
+In order to work with the code locally, you can use Python virtual environments. Make sure to use the Python version defined in `.python-version` as it is the version supported by Google Dataflow.
 
 ```
 $ python3 -m venv venv
@@ -45,7 +45,7 @@ See [quickstart python](https://cloud.google.com/dataflow/docs/quickstarts/quick
 
 ```
 python -m main \
-    --region europe-north1 \
+    --region europe-west1 \
     --runner DirectRunner \
     --stoix_scheduled 2021-01-01T00:00:00Z \
     --input_file gs://dataflow-samples/shakespeare/kinglear.txt \
@@ -76,7 +76,7 @@ $ docker push stoix/count-words:1.0.0
 Now the Dataflow Flex Template job can be ran using [Dataflow runner](https://hub.docker.com/r/stoix/dataflow-runner/). Add a new job with the image `stoix/dataflow-runner` and the following environment variables:
 
 * GCP_PROJECT_ID: `<PROJECT ID>`
-* GCP_REGION: europe-north1
+* GCP_REGION: europe-west1
 * GCP_SERVICE_ACCOUNT: `BASE64 encoded service account JSON`
 * JOB_IMAGE: stoix/count-words:1.0.0
 * JOB_NAME_PREFIX: count-words
