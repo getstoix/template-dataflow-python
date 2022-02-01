@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name="dataflow",
-    python_requires=">=3.8.12",
+    python_requires=">=3.7.10",
     version="1.0.0",
     install_requires=[
         "apache-beam[gcp]==2.35.0",
